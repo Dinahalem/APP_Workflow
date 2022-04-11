@@ -29,8 +29,5 @@ jobs:
             context: .
             push: true
             tags: dina2022/website:latest
-            
-      - name:  Publish index
-        run: /home/ec2-user/APP_Workflow/_work/APP_Workflow/APP_Workflow
  
 

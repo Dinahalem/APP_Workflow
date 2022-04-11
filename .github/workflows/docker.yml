@@ -30,25 +30,22 @@ jobs:
             push: true
             tags: dina2022/website:latest
             
-      - name: Setup SSH Keys and known_hosts
-        env:
-            SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        run: |
-            ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-            ssh-add - <<< "${{ secrets.EC2_SSH_KEY }}"
+      - name: Install SSH Key
+        uses: Dinahalem/APP_Workflow@v2
+        with:
+           key: ${{ secrets.EC2_SSH_KEY }} 
+      - name: Adding Known Hosts
+        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+      - name: Deploy with rsync
+        run: rsync -avz ./APP_Workflow/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/ec2-user/APP_Workflow/_work/APP_Workflow/APP_Workflow
 
-      - name: Some task that fetches dependencies
-        env:
-            SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        run: ./fetch-deps.sh
-
-                
+        
       - name: Deploy to Server
         uses: Dinahalem/APP_Workflow@main
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          REMOTE_HOST: ${{ secrets.HOST_DNS }}
-          REMOTE_USER: ${{ secrets.USERNAME }}
-          TARGET: ${{ secrets.TARGET_DIR }}      
+           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+           REMOTE_HOST: ${{ secrets.HOST_DNS }}
+           REMOTE_USER: ${{ secrets.USERNAME }}
+           TARGET: ${{ secrets.TARGET_DIR }}      
  
 

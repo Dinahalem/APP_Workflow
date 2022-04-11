@@ -30,6 +30,7 @@ jobs:
             push: true
             tags: dina2022/website:latest
             
-      - working-directory: /home/ec2-user/APP_Workflow/_work/APP_Workflow/APP_Workflow
+      - name:  Publish index
+        run: /home/ec2-user/APP_Workflow/_work/APP_Workflow/APP_Workflow
  
 

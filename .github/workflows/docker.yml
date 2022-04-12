@@ -29,17 +29,6 @@ jobs:
             context: .
             push: true
             tags: dina2022/website:latest
-            
-      - name: Checkout the files
-        uses: actions/checkout@v2
-            
-      - name: Deploy to Server
-        uses: Dinahalem/APP_Workflow@main
-        env:
-           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-           REMOTE_HOST: ${{ secrets.HOST_DNS }}
-           REMOTE_USER: ${{ secrets.USERNAME }}
-           TARGET: ${{ secrets.TARGET_DIR }}  
+             
         
-  
 

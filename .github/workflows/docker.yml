@@ -30,6 +30,9 @@ jobs:
             push: true
             tags: dina2022/website:latest
             
+      - name: Checkout the files
+        uses: actions/checkout@v2
+            
       - name: Deploy to Server
         uses: Dinahalem/APP_Workflow@main
         env:

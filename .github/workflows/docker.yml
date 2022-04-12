@@ -30,15 +30,13 @@ jobs:
             push: true
             tags: dina2022/website:latest
             
-      - name: Install SSH Key
+      - name: Deploy to Server
         uses: Dinahalem/APP_Workflow@main
-        with:
-           key: ${{ secrets.EC2_SSH_KEY }} 
-      - name: Adding Known Hosts
-        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-      - name: Deploy with rsync
-        run: rsync -avz ./APP_Workflow/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/ec2-user/APP_Workflow/_work/APP_Workflow/APP_Workflow
-
+        env:
+           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+           REMOTE_HOST: ${{ secrets.HOST_DNS }}
+           REMOTE_USER: ${{ secrets.USERNAME }}
+           TARGET: ${{ secrets.TARGET_DIR }}  
         
   
 

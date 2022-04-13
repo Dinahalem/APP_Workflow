@@ -13,16 +13,11 @@ jobs:
       
       - name: Deploy to Server1
         uses: Dinahalem/APP_Workflow@main
-        env:
-          FOO: "BAR"
-        with:  
+        env: 
            SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
            SOURCE: /
            REMOTE_HOST: ${{secrets.SSH_HOST}}
            REMOTE_USER:  ${{secrets.SSH_USER}}
            TARGET:  ${{secrets.TARGET_DIR}}
-           envs: FOO
-           script: |
-               echo "I am $FOO, thanks"
-               echo "I am $BAR, thanks"
+         
            

@@ -18,11 +18,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}   
 
-    - name: docker build website
-      run: |
-          docker build -t website .
-    - name: docker push
-      run: |
-          docker push dina2022/website:1.0.0
+    - name: Build and push
+      uses: Dinahalem/APP_Workflow@main
+      with:
+          context: .
+          push: true
+          tags: dina2022/website:latest
         
 

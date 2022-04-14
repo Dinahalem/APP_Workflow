@@ -15,8 +15,6 @@ jobs:
 
     steps:
        
-      - name: Set up Docker Buildx
-        uses: Dinahalem/APP_Workflow@main
       - name: Login to DockerHub
         uses: Dinahalem/APP_Workflow@main
         with:

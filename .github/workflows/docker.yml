@@ -9,7 +9,7 @@ on:
     branches: [ main ]
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -18,7 +18,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
       run: |
-         docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD      
+          docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD      
 
     - name: docker build website
       run: |

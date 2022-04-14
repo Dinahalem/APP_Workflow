@@ -25,7 +25,7 @@ jobs:
       with:
           context: .
           push: true
-          tag: dina2022/website:latest
+          tags: dina2022/website:latest
       
  
         

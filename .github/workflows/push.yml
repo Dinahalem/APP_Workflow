@@ -21,4 +21,4 @@ jobs:
            TARGET:  ${{secrets.TARGET_DIR}}
         run: |
            git pull origin main
-           docker run -d --name techytypes website
+           docker build deploy/ .

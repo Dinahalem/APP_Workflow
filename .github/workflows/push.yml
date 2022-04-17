@@ -21,4 +21,4 @@ jobs:
            TARGET:  ${{secrets.TARGET_DIR}}
         run: |
            git pull origin main
-           docker build deploy/ .
+           docker run -d -p 80:80 --name techytypes dina2022/website

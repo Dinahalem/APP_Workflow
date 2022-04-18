@@ -20,5 +20,5 @@ jobs:
            REMOTE_USER:  ${{secrets.SSH_USER}}
            TARGET:  ${{secrets.TARGET_DIR}}
         run: |
-           git pull origin main
-           docker run -d -p 80:80 --name techytypes dina2022/website
+           git push origin main
+           docker run -d  --name new_app dina2022/website

@@ -20,5 +20,5 @@ jobs:
            REMOTE_USER:  ${{secrets.SSH_USER}}
            TARGET:  ${{secrets.TARGET_DIR}}
         run: |
-           docker rm -f $container_name || true
+           docker stop $id && docker rm $id
            docker run -d -p 9090:80 --name new_app dina2022/website

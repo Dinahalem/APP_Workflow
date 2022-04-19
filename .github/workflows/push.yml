@@ -20,6 +20,5 @@ jobs:
            REMOTE_USER:  ${{secrets.SSH_USER}}
            TARGET:  ${{secrets.TARGET_DIR}}
         run: |
-           docker start **CONTAINER ID**
-           #docker run -d -p 9090:80 --name new_app dina2022/website
+           docker run -d -p 9090:80 --name new_app dina2022/website
            

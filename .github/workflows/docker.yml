@@ -48,8 +48,8 @@ jobs:
            REMOTE_USER:  ${{secrets.SSH_USER}}
            TARGET:  ${{secrets.TARGET_DIR}}
         run: |
-           docker stop new_app
-           docker rm new_app
+           #docker stop new_app
+           #docker rm new_app
            docker run -d -p 80:80 --name new_app dina2022/website 
            
            

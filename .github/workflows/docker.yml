@@ -48,5 +48,10 @@ jobs:
         run: |
            docker stop new_app
            docker rm new_app
-           docker run -d -p 80:80 --name new_app dina2022/website      
+           docker run -d -p 80:80 --name new_app dina2022/website  
+           
+      - name: Deploy to k8s
+        run: |
+           kubectl apply -f deploy/project-deployment.yaml
+           kubectl apply -f deploy/project-node-port.yaml
 

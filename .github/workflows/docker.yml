@@ -55,7 +55,7 @@ jobs:
            
   deploy_to_kubernetes_cluster:
     name: Deploy to k8s
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2

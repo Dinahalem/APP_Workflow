@@ -54,7 +54,7 @@ jobs:
            
            
   deploy_to_kubernetes_cluster:
-    name: Deploy to k8s
+    name: Deploy to k8ss
     runs-on: self-hosted
     steps:
       - name: Checkout Repo

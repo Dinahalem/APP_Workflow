@@ -1,0 +1,4435 @@
+[2022-04-27 08:50:37Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2022-04-27 08:50:37Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:37Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:37Z INFO HostContext] Well known config file 'Credentials': '/home/ec2-user/actions-runner/.credentials'
+[2022-04-27 08:50:37Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:37Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:37Z INFO HostContext] Well known config file 'Runner': '/home/ec2-user/actions-runner/.runner'
+[2022-04-27 08:50:37Z INFO Worker] Version: 2.290.1
+[2022-04-27 08:50:37Z INFO Worker] Commit: b86ce4874592d0ec108506e8fa826ecda1c598c6
+[2022-04-27 08:50:37Z INFO Worker] Culture: 
+[2022-04-27 08:50:37Z INFO Worker] UI Culture: 
+[2022-04-27 08:50:37Z INFO Worker] Waiting to receive the job message from the channel.
+[2022-04-27 08:50:37Z INFO ProcessChannel] Receiving message of length 21528, with hash '525b1b3574c74b5254f072e061d36babe94cce7927ad5c7ad30a9e6fb819232f'
+[2022-04-27 08:50:37Z INFO Worker] Message received.
+[2022-04-27 08:50:38Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/docker.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "docker/setup-buildx-action",
+        "ref": "v1",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 15,
+        "col": 13,
+        "lit": "Set up Docker Buildx"
+      },
+      "contextName": "__docker_setup-buildx-action",
+      "condition": "success()",
+      "id": "af0f9b08-3e38-5cdb-58f3-8ba5b02a7767",
+      "name": "__docker_setup-buildx-action"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "docker/login-action",
+        "ref": "v1",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 18,
+        "col": 13,
+        "lit": "Login to DockerHub"
+      },
+      "contextName": "__docker_login-action",
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 21,
+        "col": 11,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 21,
+              "col": 11,
+              "lit": "username"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 21,
+              "col": 21,
+              "expr": "secrets.DOCKERHUB_USERNAME"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 22,
+              "col": 11,
+              "lit": "password"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 22,
+              "col": 21,
+              "expr": "secrets.DOCKERHUB_PASSWORD"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 23,
+              "col": 11,
+              "lit": "repository"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 23,
+              "col": 23,
+              "lit": "Dinahalem/APP_Workflow"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "bf2735f0-983a-5efe-3e1d-8628655b929e",
+      "name": "__docker_login-action"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "docker/build-push-action",
+        "ref": "v2",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 25,
+        "col": 13,
+        "lit": "Build and push"
+      },
+      "contextName": "__docker_build-push-action",
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 28,
+        "col": 11,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 28,
+              "col": 11,
+              "lit": "context"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 28,
+              "col": 20,
+              "lit": "."
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 29,
+              "col": 11,
+              "lit": "push"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 29,
+              "col": 17,
+              "lit": "true"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 30,
+              "col": 11,
+              "lit": "tags"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 30,
+              "col": 17,
+              "lit": "***/website:latest"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "2b3fd9b9-6521-57f4-4454-a486c70b6217",
+      "name": "__docker_build-push-action"
+    }
+  ],
+  "variables": {
+    "DOCKERHUB_PASSWORD": {
+      "value": "***",
+      "isSecret": true
+    },
+    "DOCKERHUB_USERNAME": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.isScheduled": {
+      "value": "False"
+    },
+    "system.servertype": {
+      "value": "Hosted"
+    },
+    "system.culture": {
+      "value": "en-US"
+    },
+    "system.pipelineStartTime": {
+      "value": "2022-04-27 08:50:35+00:00"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "DistributedTask.UploadStepSummary": {
+      "value": "true"
+    },
+    "system.teamProjectId": {
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    "build.buildId": {
+      "value": "427"
+    },
+    "build.containerId": {
+      "value": "5694165"
+    },
+    "system.workflowFilePath": {
+      "value": ".github/workflows/docker.yml"
+    },
+    "system.phaseDisplayName": {
+      "value": "build"
+    },
+    "system.phaseId": {
+      "value": "6884a131-87da-5381-61f3-d7acc3b91d76"
+    },
+    "system.phaseName": {
+      "value": "build"
+    },
+    "system.phaseAttempt": {
+      "value": "1"
+    },
+    "system.jobIdentifier": {
+      "value": "build.__default"
+    },
+    "system.jobAttempt": {
+      "value": "1"
+    },
+    "System.JobPositionInPhase": {
+      "value": "1"
+    },
+    "System.TotalJobsInPhase": {
+      "value": "1"
+    },
+    "system.github.job": {
+      "value": "build"
+    },
+    "system.jobDisplayName": {
+      "value": "build"
+    },
+    "system.jobId": {
+      "value": "ca395085-040a-526b-2ce8-bdc85f692774"
+    },
+    "system.jobName": {
+      "value": "__default"
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Actions\":\"write\",\"Checks\":\"write\",\"Contents\":\"write\",\"Deployments\":\"write\",\"Discussions\":\"write\",\"Issues\":\"write\",\"Metadata\":\"read\",\"Packages\":\"write\",\"Pages\":\"write\",\"PullRequests\":\"write\",\"RepositoryProjects\":\"write\",\"SecurityEvents\":\"write\",\"Statuses\":\"write\"}"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "PipelineAgentJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "Actions",
+    "version": 25,
+    "planId": "61a8b21f-6d1a-4f00-aea1-e7a2c7e6b895",
+    "planGroup": "Actions:00000000-0000-0000-0000-000000000000:1",
+    "artifactUri": "vstfs:///Build/Build/427",
+    "artifactLocation": null,
+    "definition": {
+      "_links": {},
+      "id": 3,
+      "name": "APP_Workflow"
+    },
+    "owner": {
+      "_links": {},
+      "id": 3,
+      "name": "Dinahalem"
+    }
+  },
+  "timeline": {
+    "id": "61a8b21f-6d1a-4f00-aea1-e7a2c7e6b895",
+    "changeId": 0,
+    "location": null
+  },
+  "jobId": "ca395085-040a-526b-2ce8-bdc85f692774",
+  "jobDisplayName": "build",
+  "jobName": "__default",
+  "requestId": 738,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "91fa3131-68d0-4e48-bc67-4ac2e17095ec",
+          "ServerName": "KIKwzJ2xh9E05biEu7dQ2SHtmLF97C3VZPgrzHBnkQc2OpbpFl",
+          "CacheServerUrl": "https://artifactcache.actions.githubusercontent.com/KIKwzJ2xh9E05biEu7dQ2SHtmLF97C3VZPgrzHBnkQc2OpbpFl/",
+          "FeedStreamUrl": "https://pipelines.actions.githubusercontent.com/KIKwzJ2xh9E05biEu7dQ2SHtmLF97C3VZPgrzHBnkQc2OpbpFl/00000000-0000-0000-0000-000000000000/_apis/distributedtask/hubs/Actions/plans/61a8b21f-6d1a-4f00-aea1-e7a2c7e6b895/timelines/61a8b21f-6d1a-4f00-aea1-e7a2c7e6b895/records/ca395085-040a-526b-2ce8-bdc85f692774/feedstream?api-version=6.0-preview"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://pipelines.actions.githubusercontent.com/KIKwzJ2xh9E05biEu7dQ2SHtmLF97C3VZPgrzHBnkQc2OpbpFl/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": ***
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/main"
+        },
+        {
+          "k": "sha",
+          "v": "609edc968055cf755a8fb8d2e6e7f706cf4967ca"
+        },
+        {
+          "k": "repository",
+          "v": "Dinahalem/APP_Workflow"
+        },
+        {
+          "k": "repository_owner",
+          "v": "Dinahalem"
+        },
+        {
+          "k": "repository_owner_id",
+          "v": "91435311"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/Dinahalem/APP_Workflow.git"
+        },
+        {
+          "k": "run_id",
+          "v": "2231807084"
+        },
+        {
+          "k": "run_number",
+          "v": "156"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "run_attempt",
+          "v": "2"
+        },
+        {
+          "k": "artifact_cache_size_limit",
+          "v": "10"
+        },
+        {
+          "k": "repository_id",
+          "v": "478743715"
+        },
+        {
+          "k": "actor_id",
+          "v": "91435311"
+        },
+        {
+          "k": "actor",
+          "v": "Dinahalem"
+        },
+        {
+          "k": "workflow",
+          "v": "Docker Series Builds"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "609edc968055cf755a8fb8d2e6e7f706cf4967ca"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "599ab85d3f0d27a455c3deb68afc2e8c63c9be4d"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "91435311+Dinahalem@users.noreply.github.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Dina Abd El-Halim"
+                              },
+                              {
+                                "k": "username",
+                                "v": "Dinahalem"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "noreply@github.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "GitHub"
+                              },
+                              {
+                                "k": "username",
+                                "v": "web-flow"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "609edc968055cf755a8fb8d2e6e7f706cf4967ca"
+                        },
+                        {
+                          "k": "message",
+                          "v": "Update index.html"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2022-04-27T11:24:54+03:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "a49ec67b09ecdea9f53a4dd87e9bef51928991aa"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/Dinahalem/APP_Workflow/commit/609edc968055cf755a8fb8d2e6e7f706cf4967ca"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/Dinahalem/APP_Workflow/compare/599ab85d3f0d...609edc968055"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "91435311+Dinahalem@users.noreply.github.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "Dina Abd El-Halim"
+                          },
+                          {
+                            "k": "username",
+                            "v": "Dinahalem"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "noreply@github.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "GitHub"
+                          },
+                          {
+                            "k": "username",
+                            "v": "web-flow"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "609edc968055cf755a8fb8d2e6e7f706cf4967ca"
+                    },
+                    {
+                      "k": "message",
+                      "v": "Update index.html"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2022-04-27T11:24:54+03:00"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "a49ec67b09ecdea9f53a4dd87e9bef51928991aa"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/Dinahalem/APP_Workflow/commit/609edc968055cf755a8fb8d2e6e7f706cf4967ca"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "91435311+Dinahalem@users.noreply.github.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "Dinahalem"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/main"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "allow_forking",
+                      "v": true
+                    },
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/Dinahalem/APP_Workflow.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1649283326.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": "APP_Workflow"
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "Dinahalem/APP_Workflow"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/Dinahalem/APP_Workflow.git"
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": true
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": "http://52.208.237.198:30889"
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/Dinahalem/APP_Workflow"
+                    },
+                    {
+                      "k": "id",
+                      "v": 478743715.0
+                    },
+                    {
+                      "k": "is_template",
+                      "v": false
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "Shell"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": null
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "APP_Workflow"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "R_kgDOHIkMow"
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/91435311?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "91435311+Dinahalem@users.noreply.github.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/Dinahalem/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/Dinahalem/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/Dinahalem/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/Dinahalem/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/Dinahalem"
+                          },
+                          {
+                            "k": "id",
+                            "v": 91435311.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "Dinahalem"
+                          },
+                          {
+                            "k": "name",
+                            "v": "Dinahalem"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "MDQ6VXNlcjkxNDM1MzEx"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/Dinahalem/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/Dinahalem/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/Dinahalem/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/Dinahalem/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/Dinahalem/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/Dinahalem"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1651047894.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 120.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:Dinahalem/APP_Workflow.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/Dinahalem/APP_Workflow"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/teams"
+                    },
+                    {
+                      "k": "topics",
+                      "v": {
+                        "t": 1
+                      }
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/Dinahalem/APP_Workflow/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2022-04-21T07:47:14Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/Dinahalem/APP_Workflow"
+                    },
+                    {
+                      "k": "visibility",
+                      "v": "public"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/91435311?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/Dinahalem/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/Dinahalem/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/Dinahalem/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/Dinahalem/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/Dinahalem"
+                    },
+                    {
+                      "k": "id",
+                      "v": 91435311.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "Dinahalem"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "MDQ6VXNlcjkxNDM1MzEx"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/Dinahalem/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/Dinahalem/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/Dinahalem/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/Dinahalem/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/Dinahalem/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/Dinahalem"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        },
+        {
+          "k": "ref_name",
+          "v": "main"
+        },
+        {
+          "k": "ref_protected",
+          "v": false
+        },
+        {
+          "k": "ref_type",
+          "v": "branch"
+        },
+        {
+          "k": "secret_source",
+          "v": "Actions"
+        }
+      ]
+    },
+    "needs": {
+      "t": 2
+    },
+    "inputs": null,
+    "matrix": null,
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 1.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 1.0
+        }
+      ]
+    }
+  }
+}
+[2022-04-27 08:50:38Z INFO JobRunner] Job ID ca395085-040a-526b-2ce8-bdc85f692774
+[2022-04-27 08:50:38Z INFO JobRunner] Creating job server with URL: https://pipelines.actions.githubusercontent.com/KIKwzJ2xh9E05biEu7dQ2SHtmLF97C3VZPgrzHBnkQc2OpbpFl/
+[2022-04-27 08:50:38Z INFO ConfigurationStore] currentAssemblyLocation: /home/ec2-user/actions-runner/bin/Runner.Worker.dll
+[2022-04-27 08:50:38Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:38Z INFO ConfigurationStore] binPath: /home/ec2-user/actions-runner/bin
+[2022-04-27 08:50:38Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:38Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:38Z INFO ConfigurationStore] RootFolder: /home/ec2-user/actions-runner
+[2022-04-27 08:50:38Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:38Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:38Z INFO HostContext] Well known config file 'Runner': '/home/ec2-user/actions-runner/.runner'
+[2022-04-27 08:50:38Z INFO ConfigurationStore] ConfigFilePath: /home/ec2-user/actions-runner/.runner
+[2022-04-27 08:50:38Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:38Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:38Z INFO HostContext] Well known config file 'Credentials': '/home/ec2-user/actions-runner/.credentials'
+[2022-04-27 08:50:38Z INFO ConfigurationStore] CredFilePath: /home/ec2-user/actions-runner/.credentials
+[2022-04-27 08:50:38Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:38Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:38Z INFO HostContext] Well known config file 'MigratedCredentials': '/home/ec2-user/actions-runner/.credentials_migrated'
+[2022-04-27 08:50:38Z INFO ConfigurationStore] MigratedCredFilePath: /home/ec2-user/actions-runner/.credentials_migrated
+[2022-04-27 08:50:38Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:38Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:38Z INFO HostContext] Well known config file 'Service': '/home/ec2-user/actions-runner/.service'
+[2022-04-27 08:50:38Z INFO ConfigurationStore] ServiceConfigFilePath: /home/ec2-user/actions-runner/.service
+[2022-04-27 08:50:38Z INFO ConfigurationStore] Read setting file: 295 chars
+[2022-04-27 08:50:38Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2022-04-27 08:50:38Z INFO Worker] Listening for cancel message from the channel.
+[2022-04-27 08:50:38Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2022-04-27 08:50:38Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2022-04-27 08:50:39Z INFO JobServer] Creating websocket client ...wss://pipelines.actions.githubusercontent.com/KIKwzJ2xh9E05biEu7dQ2SHtmLF97C3VZPgrzHBnkQc2OpbpFl/00000000-0000-0000-0000-000000000000/_apis/distributedtask/hubs/Actions/plans/61a8b21f-6d1a-4f00-aea1-e7a2c7e6b895/timelines/61a8b21f-6d1a-4f00-aea1-e7a2c7e6b895/records/ca395085-040a-526b-2ce8-bdc85f692774/feedstream?api-version=6.0-preview
+[2022-04-27 08:50:39Z INFO JobServer] Attempting to start websocket client with delay 00:00:00.
+[2022-04-27 08:50:39Z INFO JobServerQueue] Start process web console line queue.
+[2022-04-27 08:50:39Z INFO JobServerQueue] Start process file upload queue.
+[2022-04-27 08:50:39Z INFO JobServerQueue] Start process timeline update queue.
+[2022-04-27 08:50:39Z INFO ExecutionContext] Initialize GitHub context
+[2022-04-27 08:50:39Z INFO ExecutionContext] Initialize Env context
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Diag': '/home/ec2-user/actions-runner/_diag'
+[2022-04-27 08:50:39Z INFO JobRunner] Starting the job execution context.
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:39Z INFO JobRunner] Validating directory permissions for: '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Tools': '/home/ec2-user/actions-runner/_work/_tool'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Temp': '/home/ec2-user/actions-runner/_work/_temp'
+[2022-04-27 08:50:39Z INFO JobRunner] Getting job extension.
+[2022-04-27 08:50:39Z INFO JobRunner] Initialize job. Getting all job steps.
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Diag': '/home/ec2-user/actions-runner/_diag'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:39Z INFO HostContext] Well known config file 'Credentials': '/home/ec2-user/actions-runner/.credentials'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:39Z INFO HostContext] Well known config file 'SetupInfo': '/home/ec2-user/actions-runner/.setup_info'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:39Z INFO PipelineDirectoryManager] Loading tracking config if exists: /home/ec2-user/actions-runner/_work/_PipelineMapping/Dinahalem/APP_Workflow/PipelineFolder.json
+[2022-04-27 08:50:39Z INFO PipelineDirectoryManager] Updating job run properties.
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:39Z INFO JobExtension] Downloading actions
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:39Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:39Z INFO JobServer] Successfully started websocket client.
+[2022-04-27 08:50:39Z INFO JobServerQueue] Try to append 1 batches web console lines for record '389437a1-5cb8-463a-9f21-f5a63ec8a22a', success rate: 1/1.
+[2022-04-27 08:50:40Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:40Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:40Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:40Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:40Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:40Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:40Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:40Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:40Z INFO ActionManager] Save archive 'https://api.github.com/repos/docker/setup-buildx-action/tarball/94ab11c41e45d028884a99163086648e898eed25' into /home/ec2-user/actions-runner/_work/_actions/_temp_0cef3ab3-24b3-4ee6-9aa3-646c3fd7ad02/61baf26f-26a2-49cd-b023-ba6b390e3c54.tar.gz.
+[2022-04-27 08:50:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record '389437a1-5cb8-463a-9f21-f5a63ec8a22a', success rate: 1/1.
+[2022-04-27 08:50:40Z INFO JobServerQueue] Job timeline record has been updated for the first time.
+[2022-04-27 08:50:40Z INFO ActionManager] Which: 'tar'
+[2022-04-27 08:50:40Z INFO ActionManager] Location: '/usr/bin/tar'
+[2022-04-27 08:50:40Z INFO ProcessInvokerWrapper] Starting process:
+[2022-04-27 08:50:40Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/tar'
+[2022-04-27 08:50:40Z INFO ProcessInvokerWrapper]   Arguments: '-xzf "/home/ec2-user/actions-runner/_work/_actions/_temp_0cef3ab3-24b3-4ee6-9aa3-646c3fd7ad02/61baf26f-26a2-49cd-b023-ba6b390e3c54.tar.gz"'
+[2022-04-27 08:50:40Z INFO ProcessInvokerWrapper]   Working directory: '/home/ec2-user/actions-runner/_work/_actions/_temp_0cef3ab3-24b3-4ee6-9aa3-646c3fd7ad02/_staging'
+[2022-04-27 08:50:40Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-04-27 08:50:40Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-04-27 08:50:40Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-04-27 08:50:40Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-04-27 08:50:40Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-04-27 08:50:40Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-04-27 08:50:40Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-04-27 08:50:40Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 17948.
+[2022-04-27 08:50:40Z INFO ProcessInvokerWrapper] Process started with process id 17948, waiting for process exit.
+[2022-04-27 08:50:40Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-04-27 08:50:40Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-04-27 08:50:40Z INFO ProcessInvokerWrapper] Finished process 17948 with exit code 0, and elapsed time 00:00:00.0149577.
+[2022-04-27 08:50:40Z INFO ActionManager] Finished getting action repository.
+[2022-04-27 08:50:40Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:40Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:40Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:40Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:40Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:40Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:40Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:40Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:40Z INFO ActionManager] Save archive 'https://api.github.com/repos/docker/login-action/tarball/dd4fa0671be5250ee6f50aedf4cb05514abda2c7' into /home/ec2-user/actions-runner/_work/_actions/_temp_fdb8c61b-4455-4c01-bf8d-ff9708a5e483/e0c25c23-5e8f-4bd8-b3ad-98d2e4b880b1.tar.gz.
+[2022-04-27 08:50:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record '389437a1-5cb8-463a-9f21-f5a63ec8a22a', success rate: 1/1.
+[2022-04-27 08:50:41Z INFO ActionManager] Which: 'tar'
+[2022-04-27 08:50:41Z INFO ActionManager] Location: '/usr/bin/tar'
+[2022-04-27 08:50:41Z INFO ProcessInvokerWrapper] Starting process:
+[2022-04-27 08:50:41Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/tar'
+[2022-04-27 08:50:41Z INFO ProcessInvokerWrapper]   Arguments: '-xzf "/home/ec2-user/actions-runner/_work/_actions/_temp_fdb8c61b-4455-4c01-bf8d-ff9708a5e483/e0c25c23-5e8f-4bd8-b3ad-98d2e4b880b1.tar.gz"'
+[2022-04-27 08:50:41Z INFO ProcessInvokerWrapper]   Working directory: '/home/ec2-user/actions-runner/_work/_actions/_temp_fdb8c61b-4455-4c01-bf8d-ff9708a5e483/_staging'
+[2022-04-27 08:50:41Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-04-27 08:50:41Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-04-27 08:50:41Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-04-27 08:50:41Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-04-27 08:50:41Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-04-27 08:50:41Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-04-27 08:50:41Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-04-27 08:50:41Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 17951.
+[2022-04-27 08:50:41Z INFO ProcessInvokerWrapper] Process started with process id 17951, waiting for process exit.
+[2022-04-27 08:50:41Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-04-27 08:50:41Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-04-27 08:50:41Z INFO ProcessInvokerWrapper] Finished process 17951 with exit code 0, and elapsed time 00:00:00.0258011.
+[2022-04-27 08:50:41Z INFO ActionManager] Finished getting action repository.
+[2022-04-27 08:50:41Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:41Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:41Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:41Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:41Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:41Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:41Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:41Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:41Z INFO ActionManager] Save archive 'https://api.github.com/repos/docker/build-push-action/tarball/ac9327eae2b366085ac7f6a2d02df8aa8ead720a' into /home/ec2-user/actions-runner/_work/_actions/_temp_1f7d272f-232a-4f29-83cc-cab0b0b52c5c/c2022385-a65e-4d8a-a63d-70c174b3d9e7.tar.gz.
+[2022-04-27 08:50:41Z INFO JobServerQueue] Try to append 1 batches web console lines for record '389437a1-5cb8-463a-9f21-f5a63ec8a22a', success rate: 1/1.
+[2022-04-27 08:50:42Z INFO ActionManager] Which: 'tar'
+[2022-04-27 08:50:42Z INFO ActionManager] Location: '/usr/bin/tar'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper] Starting process:
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/tar'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   Arguments: '-xzf "/home/ec2-user/actions-runner/_work/_actions/_temp_1f7d272f-232a-4f29-83cc-cab0b0b52c5c/c2022385-a65e-4d8a-a63d-70c174b3d9e7.tar.gz"'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   Working directory: '/home/ec2-user/actions-runner/_work/_actions/_temp_1f7d272f-232a-4f29-83cc-cab0b0b52c5c/_staging'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 17955.
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper] Process started with process id 17955, waiting for process exit.
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper] Finished process 17955 with exit code 0, and elapsed time 00:00:00.0173206.
+[2022-04-27 08:50:42Z INFO ActionManager] Finished getting action repository.
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Ignore action property author.
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Ignore action property branding.
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Docker Setup Buildx",
+  "description": "Set up Docker Buildx",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 10,
+          "col": 3,
+          "lit": "version"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 13,
+          "col": 3,
+          "lit": "driver"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 15,
+          "col": 14,
+          "lit": "docker-container"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 17,
+          "col": 3,
+          "lit": "driver-opts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 20,
+          "col": 3,
+          "lit": "buildkitd-flags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 22,
+          "col": 14,
+          "lit": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 24,
+          "col": 3,
+          "lit": "install"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 26,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 28,
+          "col": 3,
+          "lit": "use"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 30,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 32,
+          "col": 3,
+          "lit": "endpoint"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 35,
+          "col": 3,
+          "lit": "config"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 38,
+          "col": 3,
+          "lit": "config-inline"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-04-27 08:50:42Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:42Z INFO ActionManager] Load action that reference repository from '/home/ec2-user/actions-runner/_work/_actions/docker/setup-buildx-action/v1'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Ignore action property author.
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Ignore action property branding.
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Docker Setup Buildx",
+  "description": "Set up Docker Buildx",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 10,
+          "col": 3,
+          "lit": "version"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 13,
+          "col": 3,
+          "lit": "driver"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 15,
+          "col": 14,
+          "lit": "docker-container"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 17,
+          "col": 3,
+          "lit": "driver-opts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 20,
+          "col": 3,
+          "lit": "buildkitd-flags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 22,
+          "col": 14,
+          "lit": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 24,
+          "col": 3,
+          "lit": "install"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 26,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 28,
+          "col": 3,
+          "lit": "use"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 30,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 32,
+          "col": 3,
+          "lit": "endpoint"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 35,
+          "col": 3,
+          "lit": "config"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 38,
+          "col": 3,
+          "lit": "config-inline"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-04-27 08:50:42Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-04-27 08:50:42Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-04-27 08:50:42Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Ignore action property author.
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Ignore action property branding.
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Docker Login",
+  "description": "GitHub Action to login against a Docker registry",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 10,
+          "col": 3,
+          "lit": "registry"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 13,
+          "col": 3,
+          "lit": "username"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 16,
+          "col": 3,
+          "lit": "password"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 19,
+          "col": 3,
+          "lit": "ecr"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 21,
+          "col": 14,
+          "lit": "auto"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 23,
+          "col": 3,
+          "lit": "logout"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 25,
+          "col": 14,
+          "lit": "true"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-04-27 08:50:42Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:42Z INFO ActionManager] Load action that reference repository from '/home/ec2-user/actions-runner/_work/_actions/docker/login-action/v1'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Ignore action property author.
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Ignore action property branding.
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Docker Login",
+  "description": "GitHub Action to login against a Docker registry",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 10,
+          "col": 3,
+          "lit": "registry"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 13,
+          "col": 3,
+          "lit": "username"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 16,
+          "col": 3,
+          "lit": "password"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 19,
+          "col": 3,
+          "lit": "ecr"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 21,
+          "col": 14,
+          "lit": "auto"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 23,
+          "col": 3,
+          "lit": "logout"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 25,
+          "col": 14,
+          "lit": "true"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-04-27 08:50:42Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-04-27 08:50:42Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-04-27 08:50:42Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Ignore action property author.
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Ignore action property branding.
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Build and push Docker images",
+  "description": "Build and push Docker images with Buildx",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 10,
+          "col": 3,
+          "lit": "add-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 13,
+          "col": 3,
+          "lit": "allow"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 16,
+          "col": 3,
+          "lit": "build-args"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 19,
+          "col": 3,
+          "lit": "build-contexts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 22,
+          "col": 3,
+          "lit": "builder"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 25,
+          "col": 3,
+          "lit": "cache-from"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 28,
+          "col": 3,
+          "lit": "cache-to"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 31,
+          "col": 3,
+          "lit": "cgroup-parent"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 34,
+          "col": 3,
+          "lit": "context"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 37,
+          "col": 3,
+          "lit": "file"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 40,
+          "col": 3,
+          "lit": "labels"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 43,
+          "col": 3,
+          "lit": "load"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 46,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 47,
+          "col": 3,
+          "lit": "network"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 50,
+          "col": 3,
+          "lit": "no-cache"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 53,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 54,
+          "col": 3,
+          "lit": "outputs"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 57,
+          "col": 3,
+          "lit": "platforms"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 60,
+          "col": 3,
+          "lit": "pull"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 63,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 64,
+          "col": 3,
+          "lit": "push"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 67,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 68,
+          "col": 3,
+          "lit": "secrets"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 71,
+          "col": 3,
+          "lit": "secret-files"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 74,
+          "col": 3,
+          "lit": "shm-size"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 77,
+          "col": 3,
+          "lit": "ssh"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 80,
+          "col": 3,
+          "lit": "tags"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 83,
+          "col": 3,
+          "lit": "target"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 86,
+          "col": 3,
+          "lit": "ulimit"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 89,
+          "col": 3,
+          "lit": "github-token"
+        },
+        "value": {
+          "type": 3,
+          "file": 4,
+          "line": 91,
+          "col": 14,
+          "expr": "github.token"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-04-27 08:50:42Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:42Z INFO ActionManager] Load action that reference repository from '/home/ec2-user/actions-runner/_work/_actions/docker/build-push-action/v2'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Ignore action property author.
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Ignore action property branding.
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Build and push Docker images",
+  "description": "Build and push Docker images with Buildx",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 10,
+          "col": 3,
+          "lit": "add-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 13,
+          "col": 3,
+          "lit": "allow"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 16,
+          "col": 3,
+          "lit": "build-args"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 19,
+          "col": 3,
+          "lit": "build-contexts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 22,
+          "col": 3,
+          "lit": "builder"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 25,
+          "col": 3,
+          "lit": "cache-from"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 28,
+          "col": 3,
+          "lit": "cache-to"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 31,
+          "col": 3,
+          "lit": "cgroup-parent"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 34,
+          "col": 3,
+          "lit": "context"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 37,
+          "col": 3,
+          "lit": "file"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 40,
+          "col": 3,
+          "lit": "labels"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 43,
+          "col": 3,
+          "lit": "load"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 46,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 47,
+          "col": 3,
+          "lit": "network"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 50,
+          "col": 3,
+          "lit": "no-cache"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 53,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 54,
+          "col": 3,
+          "lit": "outputs"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 57,
+          "col": 3,
+          "lit": "platforms"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 60,
+          "col": 3,
+          "lit": "pull"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 63,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 64,
+          "col": 3,
+          "lit": "push"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 67,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 68,
+          "col": 3,
+          "lit": "secrets"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 71,
+          "col": 3,
+          "lit": "secret-files"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 74,
+          "col": 3,
+          "lit": "shm-size"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 77,
+          "col": 3,
+          "lit": "ssh"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 80,
+          "col": 3,
+          "lit": "tags"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 83,
+          "col": 3,
+          "lit": "target"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 86,
+          "col": 3,
+          "lit": "ulimit"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 89,
+          "col": 3,
+          "lit": "github-token"
+        },
+        "value": {
+          "type": 3,
+          "file": 4,
+          "line": 91,
+          "col": 14,
+          "expr": "github.token"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-04-27 08:50:42Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-04-27 08:50:42Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-04-27 08:50:42Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2022-04-27 08:50:42Z INFO JobExtension] Adding .
+[2022-04-27 08:50:42Z INFO JobExtension] Adding .
+[2022-04-27 08:50:42Z INFO JobExtension] Adding .
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Diag': '/home/ec2-user/actions-runner/_diag'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Diag': '/home/ec2-user/actions-runner/_diag'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Diag': '/home/ec2-user/actions-runner/_diag'
+[2022-04-27 08:50:42Z INFO JobExtension] Total accessible running process: 182.
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:42Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "setup_job",
+  "type": "runner",
+  "stage": "Pre",
+  "stepId": "389437a1-5cb8-463a-9f21-f5a63ec8a22a",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 3
+}.
+[2022-04-27 08:50:42Z INFO JobRunner] Total job steps: 3.
+[2022-04-27 08:50:42Z INFO JobRunner] Run all job steps.
+[2022-04-27 08:50:42Z INFO StepsRunner] Processing step: DisplayName='Set up Docker Buildx'
+[2022-04-27 08:50:42Z INFO StepsRunner] Evaluating: success()
+[2022-04-27 08:50:42Z INFO StepsRunner] Result: true
+[2022-04-27 08:50:42Z INFO StepsRunner] Starting the step.
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:42Z INFO ActionManager] Load action that reference repository from '/home/ec2-user/actions-runner/_work/_actions/docker/setup-buildx-action/v1'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Ignore action property author.
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Ignore action property branding.
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Docker Setup Buildx",
+  "description": "Set up Docker Buildx",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 10,
+          "col": 3,
+          "lit": "version"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 13,
+          "col": 3,
+          "lit": "driver"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 15,
+          "col": 14,
+          "lit": "docker-container"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 17,
+          "col": 3,
+          "lit": "driver-opts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 20,
+          "col": 3,
+          "lit": "buildkitd-flags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 22,
+          "col": 14,
+          "lit": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 24,
+          "col": 3,
+          "lit": "install"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 26,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 28,
+          "col": 3,
+          "lit": "use"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 30,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 32,
+          "col": 3,
+          "lit": "endpoint"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 35,
+          "col": 3,
+          "lit": "config"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 38,
+          "col": 3,
+          "lit": "config-inline"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-04-27 08:50:42Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-04-27 08:50:42Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-04-27 08:50:42Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2022-04-27 08:50:42Z INFO ExecutionContext] Reserve record order 5 to 8 for post job actions.
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Diag': '/home/ec2-user/actions-runner/_diag'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Temp': '/home/ec2-user/actions-runner/_work/_temp'
+[2022-04-27 08:50:42Z INFO ExecutionContext] Write event payload to /home/ec2-user/actions-runner/_work/_temp/_github_workflow/event.json
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Temp': '/home/ec2-user/actions-runner/_work/_temp'
+[2022-04-27 08:50:42Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2022-04-27 08:50:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2022-04-27 08:50:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2022-04-27 08:50:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Input 'version': default value evaluate result: ""
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Input 'driver': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 15,
+  "col": 14,
+  "lit": "docker-container"
+}
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Input 'driver-opts': default value evaluate result: ""
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Input 'buildkitd-flags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 22,
+  "col": 14,
+  "lit": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host"
+}
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Input 'install': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 26,
+  "col": 14,
+  "lit": "false"
+}
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Input 'use': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 30,
+  "col": 14,
+  "lit": "true"
+}
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Input 'endpoint': default value evaluate result: ""
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Input 'config': default value evaluate result: ""
+[2022-04-27 08:50:42Z INFO ActionManifestManager] Input 'config-inline': default value evaluate result: ""
+[2022-04-27 08:50:42Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2022-04-27 08:50:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2022-04-27 08:50:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2022-04-27 08:50:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2022-04-27 08:50:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2022-04-27 08:50:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2022-04-27 08:50:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2022-04-27 08:50:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2022-04-27 08:50:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2022-04-27 08:50:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2022-04-27 08:50:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2022-04-27 08:50:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2022-04-27 08:50:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2022-04-27 08:50:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2022-04-27 08:50:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2022-04-27 08:50:42Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2022-04-27 08:50:42Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2022-04-27 08:50:42Z INFO ActionCommandManager] Register action command extension for command set-env
+[2022-04-27 08:50:42Z INFO ActionCommandManager] Register action command extension for command set-output
+[2022-04-27 08:50:42Z INFO ActionCommandManager] Register action command extension for command save-state
+[2022-04-27 08:50:42Z INFO ActionCommandManager] Register action command extension for command add-path
+[2022-04-27 08:50:42Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2022-04-27 08:50:42Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2022-04-27 08:50:42Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2022-04-27 08:50:42Z INFO ActionCommandManager] Register action command extension for command warning
+[2022-04-27 08:50:42Z INFO ActionCommandManager] Register action command extension for command error
+[2022-04-27 08:50:42Z INFO ActionCommandManager] Register action command extension for command notice
+[2022-04-27 08:50:42Z INFO ActionCommandManager] Register action command extension for command debug
+[2022-04-27 08:50:42Z INFO ActionCommandManager] Register action command extension for command group
+[2022-04-27 08:50:42Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2022-04-27 08:50:42Z INFO ActionCommandManager] Register action command extension for command echo
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:42Z INFO HostContext] Well known directory 'Externals': '/home/ec2-user/actions-runner/externals'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper] Starting process:
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   File name: '/home/ec2-user/actions-runner/externals/node12/bin/node'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   Arguments: '"/home/ec2-user/actions-runner/_work/_actions/docker/setup-buildx-action/v1/dist/index.js"'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   Working directory: '/home/ec2-user/actions-runner/_work/APP_Workflow/APP_Workflow'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 17957.
+[2022-04-27 08:50:42Z INFO ProcessInvokerWrapper] Process started with process id 17957, waiting for process exit.
+[2022-04-27 08:50:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'af0f9b08-3e38-5cdb-58f3-8ba5b02a7767', success rate: 1/1.
+[2022-04-27 08:50:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'af0f9b08-3e38-5cdb-58f3-8ba5b02a7767', success rate: 1/1.
+[2022-04-27 08:50:42Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2022-04-27 08:50:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'af0f9b08-3e38-5cdb-58f3-8ba5b02a7767', success rate: 1/1.
+[2022-04-27 08:50:43Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'af0f9b08-3e38-5cdb-58f3-8ba5b02a7767', success rate: 1/1.
+[2022-04-27 08:50:43Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'af0f9b08-3e38-5cdb-58f3-8ba5b02a7767', success rate: 1/1.
+[2022-04-27 08:50:44Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'af0f9b08-3e38-5cdb-58f3-8ba5b02a7767', success rate: 1/1.
+[2022-04-27 08:50:44Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'af0f9b08-3e38-5cdb-58f3-8ba5b02a7767', success rate: 1/1.
+[2022-04-27 08:50:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'af0f9b08-3e38-5cdb-58f3-8ba5b02a7767', success rate: 1/1.
+[2022-04-27 08:50:46Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-04-27 08:50:46Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-04-27 08:50:46Z INFO ProcessInvokerWrapper] Finished process 17957 with exit code 0, and elapsed time 00:00:03.6538211.
+[2022-04-27 08:50:46Z INFO CreateStepSummaryCommand] Step Summary file (/home/ec2-user/actions-runner/_work/_temp/_runner_file_commands/step_summary_12594f5d-4d76-4455-9326-e04ca8d64be0) is empty; skipping attachment upload
+[2022-04-27 08:50:46Z INFO StepsRunner] Step result: 
+[2022-04-27 08:50:46Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "docker/setup-buildx-action",
+  "ref": "v1",
+  "type": "node12",
+  "stage": "Main",
+  "stepId": "af0f9b08-3e38-5cdb-58f3-8ba5b02a7767",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 4
+}.
+[2022-04-27 08:50:46Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2022-04-27 08:50:46Z INFO StepsRunner] Current state: job state = ''
+[2022-04-27 08:50:46Z INFO StepsRunner] Processing step: DisplayName='Login to DockerHub'
+[2022-04-27 08:50:46Z INFO StepsRunner] Evaluating: success()
+[2022-04-27 08:50:46Z INFO StepsRunner] Result: true
+[2022-04-27 08:50:46Z INFO StepsRunner] Starting the step.
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:46Z INFO ActionManager] Load action that reference repository from '/home/ec2-user/actions-runner/_work/_actions/docker/login-action/v1'
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:46Z INFO ActionManifestManager] Ignore action property author.
+[2022-04-27 08:50:46Z INFO ActionManifestManager] Ignore action property branding.
+[2022-04-27 08:50:46Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Docker Login",
+  "description": "GitHub Action to login against a Docker registry",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 10,
+          "col": 3,
+          "lit": "registry"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 13,
+          "col": 3,
+          "lit": "username"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 16,
+          "col": 3,
+          "lit": "password"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 19,
+          "col": 3,
+          "lit": "ecr"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 21,
+          "col": 14,
+          "lit": "auto"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 23,
+          "col": 3,
+          "lit": "logout"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 25,
+          "col": 14,
+          "lit": "true"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-04-27 08:50:46Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-04-27 08:50:46Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-04-27 08:50:46Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Diag': '/home/ec2-user/actions-runner/_diag'
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Temp': '/home/ec2-user/actions-runner/_work/_temp'
+[2022-04-27 08:50:46Z INFO ExecutionContext] Write event payload to /home/ec2-user/actions-runner/_work/_temp/_github_workflow/event.json
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Temp': '/home/ec2-user/actions-runner/_work/_temp'
+[2022-04-27 08:50:46Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2022-04-27 08:50:46Z INFO ActionManifestManager] Input 'registry': default value evaluate result: ""
+[2022-04-27 08:50:46Z INFO ActionManifestManager] Input 'ecr': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 21,
+  "col": 14,
+  "lit": "auto"
+}
+[2022-04-27 08:50:46Z INFO ActionManifestManager] Input 'logout': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 25,
+  "col": 14,
+  "lit": "true"
+}
+[2022-04-27 08:50:46Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2022-04-27 08:50:46Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2022-04-27 08:50:46Z INFO ActionCommandManager] Register action command extension for command set-env
+[2022-04-27 08:50:46Z INFO ActionCommandManager] Register action command extension for command set-output
+[2022-04-27 08:50:46Z INFO ActionCommandManager] Register action command extension for command save-state
+[2022-04-27 08:50:46Z INFO ActionCommandManager] Register action command extension for command add-path
+[2022-04-27 08:50:46Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2022-04-27 08:50:46Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2022-04-27 08:50:46Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2022-04-27 08:50:46Z INFO ActionCommandManager] Register action command extension for command warning
+[2022-04-27 08:50:46Z INFO ActionCommandManager] Register action command extension for command error
+[2022-04-27 08:50:46Z INFO ActionCommandManager] Register action command extension for command notice
+[2022-04-27 08:50:46Z INFO ActionCommandManager] Register action command extension for command debug
+[2022-04-27 08:50:46Z INFO ActionCommandManager] Register action command extension for command group
+[2022-04-27 08:50:46Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2022-04-27 08:50:46Z INFO ActionCommandManager] Register action command extension for command echo
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:46Z INFO HostContext] Well known directory 'Externals': '/home/ec2-user/actions-runner/externals'
+[2022-04-27 08:50:46Z INFO ProcessInvokerWrapper] Starting process:
+[2022-04-27 08:50:46Z INFO ProcessInvokerWrapper]   File name: '/home/ec2-user/actions-runner/externals/node12/bin/node'
+[2022-04-27 08:50:46Z INFO ProcessInvokerWrapper]   Arguments: '"/home/ec2-user/actions-runner/_work/_actions/docker/login-action/v1/dist/index.js"'
+[2022-04-27 08:50:46Z INFO ProcessInvokerWrapper]   Working directory: '/home/ec2-user/actions-runner/_work/APP_Workflow/APP_Workflow'
+[2022-04-27 08:50:46Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-04-27 08:50:46Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-04-27 08:50:46Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-04-27 08:50:46Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-04-27 08:50:46Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-04-27 08:50:46Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-04-27 08:50:46Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-04-27 08:50:46Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 18521.
+[2022-04-27 08:50:46Z INFO ProcessInvokerWrapper] Process started with process id 18521, waiting for process exit.
+[2022-04-27 08:50:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'af0f9b08-3e38-5cdb-58f3-8ba5b02a7767', success rate: 1/1.
+[2022-04-27 08:50:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'bf2735f0-983a-5efe-3e1d-8628655b929e', success rate: 1/1.
+[2022-04-27 08:50:47Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2022-04-27 08:50:47Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-04-27 08:50:47Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-04-27 08:50:47Z INFO ProcessInvokerWrapper] Finished process 18521 with exit code 0, and elapsed time 00:00:01.0957885.
+[2022-04-27 08:50:47Z INFO CreateStepSummaryCommand] Step Summary file (/home/ec2-user/actions-runner/_work/_temp/_runner_file_commands/step_summary_8ac3f1ba-1ecb-4a39-8ec5-65197831fad4) is empty; skipping attachment upload
+[2022-04-27 08:50:47Z INFO StepsRunner] Step result: 
+[2022-04-27 08:50:47Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "docker/login-action",
+  "ref": "v1",
+  "type": "node12",
+  "stage": "Main",
+  "stepId": "bf2735f0-983a-5efe-3e1d-8628655b929e",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "succeeded",
+  "errorMessages": [
+    "Unexpected input(s) 'repository', valid inputs are ['registry', 'username', 'password', 'ecr', 'logout']"
+  ],
+  "executionTimeInSeconds": 2
+}.
+[2022-04-27 08:50:47Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2022-04-27 08:50:47Z INFO StepsRunner] Current state: job state = ''
+[2022-04-27 08:50:47Z INFO StepsRunner] Processing step: DisplayName='Build and push'
+[2022-04-27 08:50:47Z INFO StepsRunner] Evaluating: success()
+[2022-04-27 08:50:47Z INFO StepsRunner] Result: true
+[2022-04-27 08:50:47Z INFO StepsRunner] Starting the step.
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:47Z INFO ActionManager] Load action that reference repository from '/home/ec2-user/actions-runner/_work/_actions/docker/build-push-action/v2'
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Ignore action property author.
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Ignore action property branding.
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Build and push Docker images",
+  "description": "Build and push Docker images with Buildx",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 10,
+          "col": 3,
+          "lit": "add-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 13,
+          "col": 3,
+          "lit": "allow"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 16,
+          "col": 3,
+          "lit": "build-args"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 19,
+          "col": 3,
+          "lit": "build-contexts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 22,
+          "col": 3,
+          "lit": "builder"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 25,
+          "col": 3,
+          "lit": "cache-from"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 28,
+          "col": 3,
+          "lit": "cache-to"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 31,
+          "col": 3,
+          "lit": "cgroup-parent"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 34,
+          "col": 3,
+          "lit": "context"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 37,
+          "col": 3,
+          "lit": "file"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 40,
+          "col": 3,
+          "lit": "labels"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 43,
+          "col": 3,
+          "lit": "load"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 46,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 47,
+          "col": 3,
+          "lit": "network"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 50,
+          "col": 3,
+          "lit": "no-cache"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 53,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 54,
+          "col": 3,
+          "lit": "outputs"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 57,
+          "col": 3,
+          "lit": "platforms"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 60,
+          "col": 3,
+          "lit": "pull"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 63,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 64,
+          "col": 3,
+          "lit": "push"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 67,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 68,
+          "col": 3,
+          "lit": "secrets"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 71,
+          "col": 3,
+          "lit": "secret-files"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 74,
+          "col": 3,
+          "lit": "shm-size"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 77,
+          "col": 3,
+          "lit": "ssh"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 80,
+          "col": 3,
+          "lit": "tags"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 83,
+          "col": 3,
+          "lit": "target"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 86,
+          "col": 3,
+          "lit": "ulimit"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 89,
+          "col": 3,
+          "lit": "github-token"
+        },
+        "value": {
+          "type": 3,
+          "file": 4,
+          "line": 91,
+          "col": 14,
+          "expr": "github.token"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-04-27 08:50:47Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-04-27 08:50:47Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-04-27 08:50:47Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Diag': '/home/ec2-user/actions-runner/_diag'
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Temp': '/home/ec2-user/actions-runner/_work/_temp'
+[2022-04-27 08:50:47Z INFO ExecutionContext] Write event payload to /home/ec2-user/actions-runner/_work/_temp/_github_workflow/event.json
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Temp': '/home/ec2-user/actions-runner/_work/_temp'
+[2022-04-27 08:50:47Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'add-hosts': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'allow': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'build-args': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'build-contexts': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'builder': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'cache-from': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'cache-to': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'cgroup-parent': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'file': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'labels': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'load': default value evaluate result: {
+  "type": 0,
+  "file": 4,
+  "line": 46,
+  "col": 14,
+  "lit": "false"
+}
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'network': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'no-cache': default value evaluate result: {
+  "type": 0,
+  "file": 4,
+  "line": 53,
+  "col": 14,
+  "lit": "false"
+}
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'outputs': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'platforms': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'pull': default value evaluate result: {
+  "type": 0,
+  "file": 4,
+  "line": 63,
+  "col": 14,
+  "lit": "false"
+}
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'secrets': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'secret-files': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'shm-size': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'ssh': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'target': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'ulimit': default value evaluate result: ""
+[2022-04-27 08:50:47Z INFO ActionManifestManager] Input 'github-token': default value evaluate result: {
+  "type": 0,
+  "file": 4,
+  "line": 91,
+  "col": 14,
+  "lit": "***"
+}
+[2022-04-27 08:50:47Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2022-04-27 08:50:47Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2022-04-27 08:50:47Z INFO ActionCommandManager] Register action command extension for command set-env
+[2022-04-27 08:50:47Z INFO ActionCommandManager] Register action command extension for command set-output
+[2022-04-27 08:50:47Z INFO ActionCommandManager] Register action command extension for command save-state
+[2022-04-27 08:50:47Z INFO ActionCommandManager] Register action command extension for command add-path
+[2022-04-27 08:50:47Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2022-04-27 08:50:47Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2022-04-27 08:50:47Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2022-04-27 08:50:47Z INFO ActionCommandManager] Register action command extension for command warning
+[2022-04-27 08:50:47Z INFO ActionCommandManager] Register action command extension for command error
+[2022-04-27 08:50:47Z INFO ActionCommandManager] Register action command extension for command notice
+[2022-04-27 08:50:47Z INFO ActionCommandManager] Register action command extension for command debug
+[2022-04-27 08:50:47Z INFO ActionCommandManager] Register action command extension for command group
+[2022-04-27 08:50:47Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2022-04-27 08:50:47Z INFO ActionCommandManager] Register action command extension for command echo
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:47Z INFO HostContext] Well known directory 'Externals': '/home/ec2-user/actions-runner/externals'
+[2022-04-27 08:50:47Z INFO ProcessInvokerWrapper] Starting process:
+[2022-04-27 08:50:47Z INFO ProcessInvokerWrapper]   File name: '/home/ec2-user/actions-runner/externals/node12/bin/node'
+[2022-04-27 08:50:47Z INFO ProcessInvokerWrapper]   Arguments: '"/home/ec2-user/actions-runner/_work/_actions/docker/build-push-action/v2/dist/index.js"'
+[2022-04-27 08:50:47Z INFO ProcessInvokerWrapper]   Working directory: '/home/ec2-user/actions-runner/_work/APP_Workflow/APP_Workflow'
+[2022-04-27 08:50:47Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-04-27 08:50:47Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-04-27 08:50:47Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-04-27 08:50:47Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-04-27 08:50:47Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-04-27 08:50:47Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-04-27 08:50:47Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-04-27 08:50:47Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 18546.
+[2022-04-27 08:50:47Z INFO ProcessInvokerWrapper] Process started with process id 18546, waiting for process exit.
+[2022-04-27 08:50:47Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'bf2735f0-983a-5efe-3e1d-8628655b929e', success rate: 1/1.
+[2022-04-27 08:50:47Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2b3fd9b9-6521-57f4-4454-a486c70b6217', success rate: 1/1.
+[2022-04-27 08:50:47Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2b3fd9b9-6521-57f4-4454-a486c70b6217', success rate: 1/1.
+[2022-04-27 08:50:47Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2b3fd9b9-6521-57f4-4454-a486c70b6217', success rate: 1/1.
+[2022-04-27 08:50:48Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2b3fd9b9-6521-57f4-4454-a486c70b6217', success rate: 1/1.
+[2022-04-27 08:50:48Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2022-04-27 08:50:48Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2b3fd9b9-6521-57f4-4454-a486c70b6217', success rate: 1/1.
+[2022-04-27 08:50:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2b3fd9b9-6521-57f4-4454-a486c70b6217', success rate: 1/1.
+[2022-04-27 08:50:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2b3fd9b9-6521-57f4-4454-a486c70b6217', success rate: 1/1.
+[2022-04-27 08:50:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2b3fd9b9-6521-57f4-4454-a486c70b6217', success rate: 1/1.
+[2022-04-27 08:50:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2b3fd9b9-6521-57f4-4454-a486c70b6217', success rate: 1/1.
+[2022-04-27 08:50:51Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2b3fd9b9-6521-57f4-4454-a486c70b6217', success rate: 1/1.
+[2022-04-27 08:50:52Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:52Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:52Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2b3fd9b9-6521-57f4-4454-a486c70b6217', success rate: 1/1.
+[2022-04-27 08:50:53Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2b3fd9b9-6521-57f4-4454-a486c70b6217', success rate: 1/1.
+[2022-04-27 08:50:54Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2b3fd9b9-6521-57f4-4454-a486c70b6217', success rate: 1/1.
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper] Finished process 18546 with exit code 0, and elapsed time 00:00:07.0788066.
+[2022-04-27 08:50:54Z INFO CreateStepSummaryCommand] Step Summary file (/home/ec2-user/actions-runner/_work/_temp/_runner_file_commands/step_summary_1f0d2a0d-0031-4edb-a51d-1173d30b6b24) is empty; skipping attachment upload
+[2022-04-27 08:50:54Z INFO StepsRunner] Step result: 
+[2022-04-27 08:50:54Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "docker/build-push-action",
+  "ref": "v2",
+  "type": "node12",
+  "stage": "Main",
+  "stepId": "2b3fd9b9-6521-57f4-4454-a486c70b6217",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 8
+}.
+[2022-04-27 08:50:54Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2022-04-27 08:50:54Z INFO StepsRunner] Current state: job state = ''
+[2022-04-27 08:50:54Z INFO StepsRunner] Processing step: DisplayName='Post Build and push'
+[2022-04-27 08:50:54Z INFO StepsRunner] Evaluating: always()
+[2022-04-27 08:50:54Z INFO StepsRunner] Result: true
+[2022-04-27 08:50:54Z INFO StepsRunner] Starting the step.
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:54Z INFO ActionManager] Load action that reference repository from '/home/ec2-user/actions-runner/_work/_actions/docker/build-push-action/v2'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Ignore action property author.
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Ignore action property branding.
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Build and push Docker images",
+  "description": "Build and push Docker images with Buildx",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 10,
+          "col": 3,
+          "lit": "add-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 13,
+          "col": 3,
+          "lit": "allow"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 16,
+          "col": 3,
+          "lit": "build-args"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 19,
+          "col": 3,
+          "lit": "build-contexts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 22,
+          "col": 3,
+          "lit": "builder"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 25,
+          "col": 3,
+          "lit": "cache-from"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 28,
+          "col": 3,
+          "lit": "cache-to"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 31,
+          "col": 3,
+          "lit": "cgroup-parent"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 34,
+          "col": 3,
+          "lit": "context"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 37,
+          "col": 3,
+          "lit": "file"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 40,
+          "col": 3,
+          "lit": "labels"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 43,
+          "col": 3,
+          "lit": "load"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 46,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 47,
+          "col": 3,
+          "lit": "network"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 50,
+          "col": 3,
+          "lit": "no-cache"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 53,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 54,
+          "col": 3,
+          "lit": "outputs"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 57,
+          "col": 3,
+          "lit": "platforms"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 60,
+          "col": 3,
+          "lit": "pull"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 63,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 64,
+          "col": 3,
+          "lit": "push"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 67,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 68,
+          "col": 3,
+          "lit": "secrets"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 71,
+          "col": 3,
+          "lit": "secret-files"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 74,
+          "col": 3,
+          "lit": "shm-size"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 77,
+          "col": 3,
+          "lit": "ssh"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 80,
+          "col": 3,
+          "lit": "tags"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 83,
+          "col": 3,
+          "lit": "target"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 86,
+          "col": 3,
+          "lit": "ulimit"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 89,
+          "col": 3,
+          "lit": "github-token"
+        },
+        "value": {
+          "type": 3,
+          "file": 4,
+          "line": 91,
+          "col": 14,
+          "expr": "github.token"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-04-27 08:50:54Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-04-27 08:50:54Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-04-27 08:50:54Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Temp': '/home/ec2-user/actions-runner/_work/_temp'
+[2022-04-27 08:50:54Z INFO ExecutionContext] Write event payload to /home/ec2-user/actions-runner/_work/_temp/_github_workflow/event.json
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Temp': '/home/ec2-user/actions-runner/_work/_temp'
+[2022-04-27 08:50:54Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'add-hosts': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'allow': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'build-args': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'build-contexts': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'builder': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'cache-from': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'cache-to': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'cgroup-parent': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'file': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'labels': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'load': default value evaluate result: {
+  "type": 0,
+  "file": 4,
+  "line": 46,
+  "col": 14,
+  "lit": "false"
+}
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'network': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'no-cache': default value evaluate result: {
+  "type": 0,
+  "file": 4,
+  "line": 53,
+  "col": 14,
+  "lit": "false"
+}
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'outputs': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'platforms': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'pull': default value evaluate result: {
+  "type": 0,
+  "file": 4,
+  "line": 63,
+  "col": 14,
+  "lit": "false"
+}
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'secrets': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'secret-files': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'shm-size': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'ssh': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'target': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'ulimit': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'github-token': default value evaluate result: {
+  "type": 0,
+  "file": 4,
+  "line": 91,
+  "col": 14,
+  "lit": "***"
+}
+[2022-04-27 08:50:54Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command set-env
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command set-output
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command save-state
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command add-path
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command warning
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command error
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command notice
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command debug
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command group
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command echo
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Externals': '/home/ec2-user/actions-runner/externals'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper] Starting process:
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   File name: '/home/ec2-user/actions-runner/externals/node12/bin/node'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Arguments: '"/home/ec2-user/actions-runner/_work/_actions/docker/build-push-action/v2/dist/index.js"'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Working directory: '/home/ec2-user/actions-runner/_work/APP_Workflow/APP_Workflow'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 19036.
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper] Process started with process id 19036, waiting for process exit.
+[2022-04-27 08:50:54Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2b3fd9b9-6521-57f4-4454-a486c70b6217', success rate: 1/1.
+[2022-04-27 08:50:54Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'f91a5f68-cab0-498d-899e-02b8156839d0', success rate: 1/1.
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper] Finished process 19036 with exit code 0, and elapsed time 00:00:00.1695989.
+[2022-04-27 08:50:54Z INFO CreateStepSummaryCommand] Step Summary file (/home/ec2-user/actions-runner/_work/_temp/_runner_file_commands/step_summary_bbd46633-10d6-4780-aea9-656b7b37c564) is empty; skipping attachment upload
+[2022-04-27 08:50:54Z INFO StepsRunner] Step result: 
+[2022-04-27 08:50:54Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "docker/build-push-action",
+  "ref": "v2",
+  "type": "node12",
+  "stage": "Post",
+  "stepId": "f91a5f68-cab0-498d-899e-02b8156839d0",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1
+}.
+[2022-04-27 08:50:54Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2022-04-27 08:50:54Z INFO StepsRunner] Current state: job state = ''
+[2022-04-27 08:50:54Z INFO StepsRunner] Processing step: DisplayName='Post Login to DockerHub'
+[2022-04-27 08:50:54Z INFO StepsRunner] Evaluating: always()
+[2022-04-27 08:50:54Z INFO StepsRunner] Result: true
+[2022-04-27 08:50:54Z INFO StepsRunner] Starting the step.
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:54Z INFO ActionManager] Load action that reference repository from '/home/ec2-user/actions-runner/_work/_actions/docker/login-action/v1'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Ignore action property author.
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Ignore action property branding.
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Docker Login",
+  "description": "GitHub Action to login against a Docker registry",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 10,
+          "col": 3,
+          "lit": "registry"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 13,
+          "col": 3,
+          "lit": "username"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 16,
+          "col": 3,
+          "lit": "password"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 19,
+          "col": 3,
+          "lit": "ecr"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 21,
+          "col": 14,
+          "lit": "auto"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 23,
+          "col": 3,
+          "lit": "logout"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 25,
+          "col": 14,
+          "lit": "true"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-04-27 08:50:54Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-04-27 08:50:54Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-04-27 08:50:54Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Temp': '/home/ec2-user/actions-runner/_work/_temp'
+[2022-04-27 08:50:54Z INFO ExecutionContext] Write event payload to /home/ec2-user/actions-runner/_work/_temp/_github_workflow/event.json
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Temp': '/home/ec2-user/actions-runner/_work/_temp'
+[2022-04-27 08:50:54Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'registry': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'ecr': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 21,
+  "col": 14,
+  "lit": "auto"
+}
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'logout': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 25,
+  "col": 14,
+  "lit": "true"
+}
+[2022-04-27 08:50:54Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command set-env
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command set-output
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command save-state
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command add-path
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command warning
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command error
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command notice
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command debug
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command group
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command echo
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Externals': '/home/ec2-user/actions-runner/externals'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper] Starting process:
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   File name: '/home/ec2-user/actions-runner/externals/node12/bin/node'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Arguments: '"/home/ec2-user/actions-runner/_work/_actions/docker/login-action/v1/dist/index.js"'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Working directory: '/home/ec2-user/actions-runner/_work/APP_Workflow/APP_Workflow'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 19043.
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper] Process started with process id 19043, waiting for process exit.
+[2022-04-27 08:50:54Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'f91a5f68-cab0-498d-899e-02b8156839d0', success rate: 1/1.
+[2022-04-27 08:50:54Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'ca2970b4-bd2b-4dea-b4d3-3fbdb22daf37', success rate: 1/1.
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper] Finished process 19043 with exit code 0, and elapsed time 00:00:00.2470915.
+[2022-04-27 08:50:54Z INFO CreateStepSummaryCommand] Step Summary file (/home/ec2-user/actions-runner/_work/_temp/_runner_file_commands/step_summary_469eb249-0c1d-44b6-88f2-01b2e4641428) is empty; skipping attachment upload
+[2022-04-27 08:50:54Z INFO StepsRunner] Step result: 
+[2022-04-27 08:50:54Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "docker/login-action",
+  "ref": "v1",
+  "type": "node12",
+  "stage": "Post",
+  "stepId": "ca2970b4-bd2b-4dea-b4d3-3fbdb22daf37",
+  "result": "succeeded",
+  "errorMessages": [
+    "Unexpected input(s) 'repository', valid inputs are ['registry', 'username', 'password', 'ecr', 'logout']"
+  ],
+  "executionTimeInSeconds": 1
+}.
+[2022-04-27 08:50:54Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2022-04-27 08:50:54Z INFO StepsRunner] Current state: job state = ''
+[2022-04-27 08:50:54Z INFO StepsRunner] Processing step: DisplayName='Post Set up Docker Buildx'
+[2022-04-27 08:50:54Z INFO StepsRunner] Evaluating: always()
+[2022-04-27 08:50:54Z INFO StepsRunner] Result: true
+[2022-04-27 08:50:54Z INFO StepsRunner] Starting the step.
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:54Z INFO ActionManager] Load action that reference repository from '/home/ec2-user/actions-runner/_work/_actions/docker/setup-buildx-action/v1'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Actions': '/home/ec2-user/actions-runner/_work/_actions'
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Ignore action property author.
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Ignore action property branding.
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Docker Setup Buildx",
+  "description": "Set up Docker Buildx",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 10,
+          "col": 3,
+          "lit": "version"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 13,
+          "col": 3,
+          "lit": "driver"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 15,
+          "col": 14,
+          "lit": "docker-container"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 17,
+          "col": 3,
+          "lit": "driver-opts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 20,
+          "col": 3,
+          "lit": "buildkitd-flags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 22,
+          "col": 14,
+          "lit": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 24,
+          "col": 3,
+          "lit": "install"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 26,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 28,
+          "col": 3,
+          "lit": "use"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 30,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 32,
+          "col": 3,
+          "lit": "endpoint"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 35,
+          "col": 3,
+          "lit": "config"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 38,
+          "col": 3,
+          "lit": "config-inline"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node12",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-04-27 08:50:54Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-04-27 08:50:54Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-04-27 08:50:54Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Temp': '/home/ec2-user/actions-runner/_work/_temp'
+[2022-04-27 08:50:54Z INFO ExecutionContext] Write event payload to /home/ec2-user/actions-runner/_work/_temp/_github_workflow/event.json
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Work': '/home/ec2-user/actions-runner/_work'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Temp': '/home/ec2-user/actions-runner/_work/_temp'
+[2022-04-27 08:50:54Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'version': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'driver': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 15,
+  "col": 14,
+  "lit": "docker-container"
+}
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'driver-opts': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'buildkitd-flags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 22,
+  "col": 14,
+  "lit": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host"
+}
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'install': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 26,
+  "col": 14,
+  "lit": "false"
+}
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'use': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 30,
+  "col": 14,
+  "lit": "true"
+}
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'endpoint': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'config': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ActionManifestManager] Input 'config-inline': default value evaluate result: ""
+[2022-04-27 08:50:54Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command set-env
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command set-output
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command save-state
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command add-path
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command warning
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command error
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command notice
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command debug
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command group
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2022-04-27 08:50:54Z INFO ActionCommandManager] Register action command extension for command echo
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:54Z INFO HostContext] Well known directory 'Externals': '/home/ec2-user/actions-runner/externals'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper] Starting process:
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   File name: '/home/ec2-user/actions-runner/externals/node12/bin/node'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Arguments: '"/home/ec2-user/actions-runner/_work/_actions/docker/setup-buildx-action/v1/dist/index.js"'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Working directory: '/home/ec2-user/actions-runner/_work/APP_Workflow/APP_Workflow'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 19078.
+[2022-04-27 08:50:54Z INFO ProcessInvokerWrapper] Process started with process id 19078, waiting for process exit.
+[2022-04-27 08:50:54Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'ca2970b4-bd2b-4dea-b4d3-3fbdb22daf37', success rate: 1/1.
+[2022-04-27 08:50:54Z INFO JobServerQueue] Try to append 1 batches web console lines for record '7d10c05a-6a71-4e2d-a560-104dbf53509a', success rate: 1/1.
+[2022-04-27 08:50:55Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-04-27 08:50:55Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-04-27 08:50:55Z INFO ProcessInvokerWrapper] Finished process 19078 with exit code 0, and elapsed time 00:00:00.5787951.
+[2022-04-27 08:50:55Z INFO CreateStepSummaryCommand] Step Summary file (/home/ec2-user/actions-runner/_work/_temp/_runner_file_commands/step_summary_bdd0b609-d9b9-4261-ac07-9cb1b67777db) is empty; skipping attachment upload
+[2022-04-27 08:50:55Z INFO StepsRunner] Step result: 
+[2022-04-27 08:50:55Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "docker/setup-buildx-action",
+  "ref": "v1",
+  "type": "node12",
+  "stage": "Post",
+  "stepId": "7d10c05a-6a71-4e2d-a560-104dbf53509a",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1
+}.
+[2022-04-27 08:50:55Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2022-04-27 08:50:55Z INFO StepsRunner] Current state: job state = ''
+[2022-04-27 08:50:55Z INFO JobRunner] Finalize job.
+[2022-04-27 08:50:55Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:55Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:55Z INFO HostContext] Well known directory 'Diag': '/home/ec2-user/actions-runner/_diag'
+[2022-04-27 08:50:55Z INFO JobExtension] Initialize Env context
+[2022-04-27 08:50:55Z INFO JobExtension] Initialize steps context
+[2022-04-27 08:50:55Z INFO JobExtension] Total accessible running process: 187.
+[2022-04-27 08:50:55Z INFO JobExtension] Inspecting process environment variables. PID: 730 (kworker/0:1H-xfs-log/nvme0n1p1)
+[2022-04-27 08:50:55Z INFO LinuxProcessExtensions] Read env from /proc/730/environ
+[2022-04-27 08:50:55Z WARN JobExtension] Ignore exception during read process environment variables: Access to the path '/proc/730/environ' is denied.
+[2022-04-27 08:50:55Z INFO JobExtension] Inspecting process environment variables. PID: 9618 (kworker/1:6-events)
+[2022-04-27 08:50:55Z INFO LinuxProcessExtensions] Read env from /proc/9618/environ
+[2022-04-27 08:50:55Z WARN JobExtension] Ignore exception during read process environment variables: Access to the path '/proc/9618/environ' is denied.
+[2022-04-27 08:50:55Z INFO JobExtension] Inspecting process environment variables. PID: 11097 (kworker/u4:0-xfs-cil/nvme0n1p1)
+[2022-04-27 08:50:55Z INFO LinuxProcessExtensions] Read env from /proc/11097/environ
+[2022-04-27 08:50:55Z WARN JobExtension] Ignore exception during read process environment variables: Access to the path '/proc/11097/environ' is denied.
+[2022-04-27 08:50:55Z INFO JobExtension] Inspecting process environment variables. PID: 15598 (kworker/1:0-events)
+[2022-04-27 08:50:55Z INFO LinuxProcessExtensions] Read env from /proc/15598/environ
+[2022-04-27 08:50:55Z WARN JobExtension] Ignore exception during read process environment variables: Access to the path '/proc/15598/environ' is denied.
+[2022-04-27 08:50:55Z INFO JobExtension] Inspecting process environment variables. PID: 16323 (kworker/u4:2-events_unbound)
+[2022-04-27 08:50:55Z INFO LinuxProcessExtensions] Read env from /proc/16323/environ
+[2022-04-27 08:50:55Z WARN JobExtension] Ignore exception during read process environment variables: Access to the path '/proc/16323/environ' is denied.
+[2022-04-27 08:50:55Z INFO JobExtension] Inspecting process environment variables. PID: 17141 (kworker/1:2-mm_percpu_wq)
+[2022-04-27 08:50:55Z INFO LinuxProcessExtensions] Read env from /proc/17141/environ
+[2022-04-27 08:50:55Z WARN JobExtension] Ignore exception during read process environment variables: Access to the path '/proc/17141/environ' is denied.
+[2022-04-27 08:50:55Z INFO JobExtension] Inspecting process environment variables. PID: 18511 (kworker/u4:1-events_unbound)
+[2022-04-27 08:50:55Z INFO LinuxProcessExtensions] Read env from /proc/18511/environ
+[2022-04-27 08:50:55Z WARN JobExtension] Ignore exception during read process environment variables: Access to the path '/proc/18511/environ' is denied.
+[2022-04-27 08:50:55Z INFO JobExtension] Inspecting process environment variables. PID: 18528 (kworker/0:3-events)
+[2022-04-27 08:50:55Z INFO LinuxProcessExtensions] Read env from /proc/18528/environ
+[2022-04-27 08:50:55Z WARN JobExtension] Ignore exception during read process environment variables: Access to the path '/proc/18528/environ' is denied.
+[2022-04-27 08:50:55Z INFO JobExtension] Inspecting process environment variables. PID: 18529 (kworker/0:4-rcu_gp)
+[2022-04-27 08:50:55Z INFO LinuxProcessExtensions] Read env from /proc/18529/environ
+[2022-04-27 08:50:55Z WARN JobExtension] Ignore exception during read process environment variables: Access to the path '/proc/18529/environ' is denied.
+[2022-04-27 08:50:55Z INFO JobExtension] Inspecting process environment variables. PID: 19130 (systemd-udevd)
+[2022-04-27 08:50:55Z INFO LinuxProcessExtensions] Read env from /proc/19130/environ
+[2022-04-27 08:50:55Z WARN JobExtension] Ignore exception during read process environment variables: Access to the path '/proc/19130/environ' is denied.
+[2022-04-27 08:50:55Z INFO JobExtension] Inspecting process environment variables. PID: 19135 (systemd-udevd)
+[2022-04-27 08:50:55Z INFO LinuxProcessExtensions] Read env from /proc/19135/environ
+[2022-04-27 08:50:55Z WARN JobExtension] Ignore exception during read process environment variables: Access to the path '/proc/19135/environ' is denied.
+[2022-04-27 08:50:55Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "7637536c-2eb8-4d95-a8c6-59108d57ee1d",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1
+}.
+[2022-04-27 08:50:55Z INFO JobRunner] Job result after all job steps finish: Succeeded
+[2022-04-27 08:50:55Z INFO JobRunner] Completing the job execution context.
+[2022-04-27 08:50:55Z INFO JobRunner] Shutting down the job server queue.
+[2022-04-27 08:50:55Z INFO JobServerQueue] Try to append 1 batches web console lines for record '7d10c05a-6a71-4e2d-a560-104dbf53509a', success rate: 1/1.
+[2022-04-27 08:50:55Z INFO JobServerQueue] Try to append 1 batches web console lines for record '7637536c-2eb8-4d95-a8c6-59108d57ee1d', success rate: 1/1.
+[2022-04-27 08:50:55Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2022-04-27 08:50:55Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2022-04-27 08:50:56Z INFO JobServerQueue] All queue process task stopped.
+[2022-04-27 08:50:56Z INFO JobServerQueue] Web console line queue drained.
+[2022-04-27 08:50:56Z INFO JobServerQueue] Uploading 3 files in one shot.
+[2022-04-27 08:50:57Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2022-04-27 08:50:57Z INFO JobServerQueue] File upload queue drained.
+[2022-04-27 08:50:57Z INFO JobServerQueue] Timeline update queue drained.
+[2022-04-27 08:50:57Z INFO JobServerQueue] Disposing job server ...
+[2022-04-27 08:50:57Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2022-04-27 08:50:57Z INFO TempDirectoryManager] Cleaning runner temp folder: /home/ec2-user/actions-runner/_work/_temp
+[2022-04-27 08:50:57Z INFO HostContext] Well known directory 'Bin': '/home/ec2-user/actions-runner/bin'
+[2022-04-27 08:50:57Z INFO HostContext] Well known directory 'Root': '/home/ec2-user/actions-runner'
+[2022-04-27 08:50:57Z INFO HostContext] Well known directory 'Diag': '/home/ec2-user/actions-runner/_diag'
+[2022-04-27 08:50:57Z INFO HostContext] Well known config file 'Telemetry': '/home/ec2-user/actions-runner/_diag/.telemetry'
+[2022-04-27 08:50:57Z INFO JobRunner] Raising job completed event
+[2022-04-27 08:50:57Z INFO Worker] Job completed.
